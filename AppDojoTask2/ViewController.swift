@@ -29,21 +29,21 @@ class ViewController: UIViewController {
 
 	@IBAction func calButtonTap(_ sender: Any) {
 		do{
-			let resultSum = try _doCaluculation()
+			let resultSum = try calculate()
 			resultText.text = String(resultSum)
-		}catch let error as CalculationError{
+		} catch let error as CalculationError {
 			switch error {
 			case .divisionByZero:
 				print("0除算になっています")
 				resultText.text = "割る数には0以外を入力して下さい"
 			}
-		}catch {
 			print("")
+		} catch {
 		}
 	}
 
 	// 計算を行う関数
-	private func _doCaluculation() throws -> Float{
+	private func calculate() throws -> Float {
 		let value1 = Int(textField1.text!) ?? 0
 		let value2 = Int(textField2.text!) ?? 0
 
